@@ -1,5 +1,5 @@
 
-import BodyComnent from "./components/BodyComponent";
+import HomeComponent from "./components/HomeComponent";
 import SearchComponent from "./components/SearchComponent";
 import SideBarComponent from "./components/SideBarComponent";
 import "./globals.css";
@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
                   <SearchComponent/>
                </div>
                <div className="bg-white w-[1160px] h-[655px] mt-20 rounded-t-4xl">
-                  <BodyComnent/>
+                  <HomeComponent/>
                </div>
             </div>
              {children}
