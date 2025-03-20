@@ -1,11 +1,11 @@
 'use client'
 import React from 'react'
 import SearchComponent from './SearchComponent'
-import {cardBooks} from '../data/cardbookdata'
+import {cardBooks} from '../app/data/cardbookdata'
 import Image from 'next/image'
 import { useRouter } from "next/navigation";
 
-const BookCategories = ({bookId}) => {
+const BookCategories = () => {
   const route = useRouter();
   return (
     <div className="mt-10">
@@ -40,7 +40,7 @@ const BookCategories = ({bookId}) => {
                 <div className='bg-[#F5F7F8] w-[470px] h-[205px] rounded-3xl'>
                 <div className='flex gap-5'>
                   <div className='bg-[#BFD7EA] w-40 mt-36 ml-4 h-12 hover:bg-[#087E8B] hover:text-white  rounded-3xl'
-                  onClick={() => route.push(`/read-full-article/${bookId}`)}
+                  onClick={() => route.push(`/read-full-article/${item.id}`)}
                   >
                     <button className=' color=[#0B3954] font-mono text-sm pl-3 pt-4 cursor-pointer'>{item.text}</button>
                   </div>

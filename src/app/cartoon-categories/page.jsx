@@ -1,5 +1,5 @@
 import React from 'react'
-import CartoonCategories from '../components/CartoonCategories'
+import CartoonCategories from '../../components/CartoonCategories'
 
 const page = () => {
   return (
