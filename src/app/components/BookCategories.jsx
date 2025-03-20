@@ -1,9 +1,12 @@
+'use client'
 import React from 'react'
 import SearchComponent from './SearchComponent'
 import {cardBooks} from '../data/cardbookdata'
 import Image from 'next/image'
+import { useRouter } from "next/navigation";
 
-const BookCategories = () => {
+const BookCategories = ({bookId}) => {
+  const route = useRouter();
   return (
     <div className="mt-10">
       <div className="bg-white w-full max-w-[1160px] h-16 rounded-full flex items-center px-4">
@@ -36,8 +39,10 @@ const BookCategories = () => {
               
                 <div className='bg-[#F5F7F8] w-[470px] h-[205px] rounded-3xl'>
                 <div className='flex gap-5'>
-                  <div className='bg-[#BFD7EA] w-40 mt-36 ml-4 h-12  rounded-3xl'>
-                    <button className=' color=[#0B3954] font-mono text-sm pl-3 pt-4'>{item.text}</button>
+                  <div className='bg-[#BFD7EA] w-40 mt-36 ml-4 h-12 hover:bg-[#087E8B] hover:text-white  rounded-3xl'
+                  onClick={() => route.push(`/read-full-article/${bookId}`)}
+                  >
+                    <button className=' color=[#0B3954] font-mono text-sm pl-3 pt-4 cursor-pointer'>{item.text}</button>
                   </div>
                   <div className='  w-64 h-44 font-mono mt-5 whitespace-break-spaces '>
                     <h1 className='truncate w-64 font-bold text-2xl color-[#0B3954] mb-2 '>{item.title}</h1>
