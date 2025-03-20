@@ -1,10 +1,10 @@
 import React from 'react'
-import BookCategories from '../components/BookCategories'
+import CartoonCategories from '../components/CartoonCategories'
 
 const page = () => {
   return (
     <div>
-      <BookCategories/>
+       <CartoonCategories/>
     </div>
   )
 }

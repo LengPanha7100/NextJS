@@ -1,12 +1,13 @@
 import React from 'react'
-import BookCategories from '../components/BookCategories'
+import HomeComponent from '../components/HomeComponent'
 
 const page = () => {
   return (
     <div>
-      <BookCategories/>
+        <HomeComponent/>
     </div>
   )
 }
 
 export default page
+
