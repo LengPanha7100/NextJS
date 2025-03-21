@@ -1,9 +1,19 @@
-import Image from "next/image";
+import React from 'react'
+import HomeComponent from '../components/HomeComponent'
+import SideBarComponent from '@/components/SideBarComponent'
 
-export default function Home() {
+const page = () => {
   return (
-   <div>
-       
-   </div>
-  );
+    <div className="flex gap-[100px] bg-[#F5F7F8]">
+        <div className="bg-[#FFFFFF] w-80 h-screen">
+            <SideBarComponent />
+        </div>
+        <div>
+            <HomeComponent/>
+        </div>
+    </div>
+
+  )
 }
+
+export default page

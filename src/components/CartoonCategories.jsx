@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchComponent from './SearchComponent'
 import Image from 'next/image'
-import {oldschools} from '../app/data/oldschooldata'
+import {oldschools} from '../data/oldschooldata'
 
 const CartoonCategories = () => {
   return (

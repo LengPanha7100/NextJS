@@ -1,11 +1,11 @@
 'use client'
 import React from 'react'
 import SearchComponent from './SearchComponent'
-import {cardBooks} from '../app/data/cardbookdata'
 import Image from 'next/image'
 import { useRouter } from "next/navigation";
 
-const BookCategories = () => {
+const BookCategories = ({data}) => {
+  console.log(data)
   const route = useRouter();
   return (
     <div className="mt-10">
@@ -29,24 +29,23 @@ const BookCategories = () => {
           </div>
 
 
-           <div className='grid grid-cols-2 pl-10 gap-28 pt-24'>
-            {cardBooks.map((item,index) =>(
+           <div className='grid grid-cols-2 pl-10 max-h-[620px] overflow-y-auto scroll-hidden gap-28 pt-24'>
+            {data?.payload?.map((item,index) =>(
                   
-              <div key={index}>
-                <div className='absolute mt-[-75px] ml-[17px] '>
-                    <Image src={item?.image} width={160} height={20} alt="book" className="h-52 rounded-2xl" />
-                </div>
-              
+              <div key={index} className='relative'>
                 <div className='bg-[#F5F7F8] w-[470px] h-[205px] rounded-3xl'>
+                <div className='absolute mt-[-75px] ml-[17px] '>
+                        <Image src={item?.image} width={160} height={20} alt="book" className="h-52 rounded-2xl" />
+                </div>
                 <div className='flex gap-5'>
                   <div className='bg-[#BFD7EA] w-40 mt-36 ml-4 h-12 hover:bg-[#087E8B] hover:text-white  rounded-3xl'
                   onClick={() => route.push(`/read-full-article/${item.id}`)}
                   >
-                    <button className=' color=[#0B3954] font-mono text-sm pl-3 pt-4 cursor-pointer'>{item.text}</button>
+                    <button className=' color=[#0B3954] font-mono text-sm pl-3 pt-4 cursor-pointer'>READ FULL ARTICLE</button>
                   </div>
                   <div className='  w-64 h-44 font-mono mt-5 whitespace-break-spaces '>
-                    <h1 className='truncate w-64 font-bold text-2xl color-[#0B3954] mb-2 '>{item.title}</h1>
-                    <p className='text-md color-[#0B3954] w-60 '>{item.description}</p>
+                    <h1 className='truncate w-64 font-bold text-2xl color-[#0B3954] mb-2 '>{item.book_title}</h1>
+                    <p className='text-md color-[#0B3954] w-60 line-clamp-5 '>{item.description}</p>
                   </div>
                 </div>
                 

@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { menus } from "../app/data/sidebardata";
+import { menus } from "../data/sidebardata";
 import Image from 'next/image';
 import { useRouter , usePathname } from "next/navigation";
 const MenuComponent = () => {

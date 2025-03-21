@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import {cardtypes} from "../app/data/cardtypesdata"
+import {cardtypes} from "../data/cardtypesdata"
 import Image from 'next/image';
 import SearchComponent from './SearchComponent';
 import { useRouter } from "next/navigation";
