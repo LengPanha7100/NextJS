@@ -1,5 +1,5 @@
 import BookCategories from '../../../components/BookCategories'
-import { getAllBookAction } from '@/action/bookServer'
+import { getAllBookAction } from '@/action/bookAction'
 
 
 const page = async () => {

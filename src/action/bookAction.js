@@ -7,6 +7,5 @@ export async function getAllBookAction() {
 
 export async function getBookByIdAction(id) {
     const res = await getBookByIdService(id);
-    console.log("res12",res)
     return res;
 }
