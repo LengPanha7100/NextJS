@@ -18,11 +18,10 @@ const BookCategories = ({data}) => {
                 <div className="bg-[#F5F7F8] text-[#087E8B] w-48 text-center p-4 rounded-lg mt-7 ml-10 text-lg font-semibold">
                     All Books
                 </div>
-                <div className='flex bg-[#F5F7F8] mr-10 w-72 h-14 mt-7 rounded-2xl gap-8'>
+                <div className='flex bg-[#F5F7F8] mr-10 w-72 h-14 mt-7 rounded-2xl gap-8 cursor-pointer'>
                   <input type="text" placeholder='Filter By Category' className='ml-5 border-none outline-none bg-transparent' />
-                  <Image src="/icons/arrow-down.svg" width={22} height={22} alt='dropdown' />
+                  <Image src="/icons/arrow-down.svg" width={22} height={22} alt='dropdown'  />
                 </div>
-                
             </div>
             
             <hr className="border-gray-300 w-[1160px] mx-auto" />

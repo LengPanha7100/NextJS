@@ -1,10 +1,9 @@
 import React from 'react'
 import CartoonCategories from '../../../components/CartoonCategories'
-import { getAllCartoonAction } from '@/action/cartoonAction'
+import { getAllCartoonAction} from '@/action/cartoonAction'
 
 const page = async  () => {
   const dataCartoon = await getAllCartoonAction();
-  console.log("134",dataCartoon); 
   return (
     <div>
        <CartoonCategories dataCartoon = {dataCartoon}/>

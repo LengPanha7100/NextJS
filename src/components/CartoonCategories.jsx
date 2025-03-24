@@ -1,14 +1,31 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import SearchComponent from './SearchComponent'
 import Image from 'next/image'
-import {oldschools} from '../data/oldschooldata'
 import moment from 'moment'
+import { useRouter } from 'next/navigation'
+import { searchCartoonAction } from '@/action/cartoonAction'
+// import { searchCartoonAction } from '@/action/cartoonAction'
+// import { collectSegmentData } from 'next/dist/server/app-render/collect-segment-data'
 
 const CartoonCategories = ({dataCartoon}) => {
+  const [data , setData] = useState(dataCartoon);
+  console.log(data,"panha")
+  const route = useRouter();
+  const handleSearch = async (search) =>{
+    if(!search){
+      setData(dataCartoon);
+      return
+    }
+    const resultSearch = await  searchCartoonAction(search);
+    console.log("231",resultSearch)
+    console.log("Hello")
+    setData(resultSearch?.payload || [])
+  }
   return (
-    <div className="mt-10">
+    <div className="mt-10 ">
       <div className="bg-white w-full max-w-[1160px] h-16 rounded-full flex items-center px-4">
-        <SearchComponent/>
+        <SearchComponent onSearch={handleSearch}/>
       </div>
       <div className="bg-white w-[1180px] h-[735px] mt-10 rounded-t-4xl">
           <div className="flex flex-col gap-5">
@@ -26,8 +43,10 @@ const CartoonCategories = ({dataCartoon}) => {
             <hr className="border-gray-300 w-[1160px] mx-auto" />
           </div>
           <div className='grid grid-cols-3 max-h-[625px] overflow-y-auto scroll-hidden'>
-            {dataCartoon?.payload?.map((item,index) =>(
-              <div key={index} className='  w-[314px] h-[420px] ml-10 mt-10'>
+            {data?.payload?.map((item,index) =>(
+              <div key={index} className='  w-[314px] h-[420px] ml-10 mt-10 cursor-pointer'
+              onClick={() => route.push(`/view-cartoon/${item.id}`)}
+              >
                 <div className=' flex justify-center max-w-[360px] max-h-[360px]'>
                      <Image src={item.image} width={260} height={60} alt='cartoon' className=''/>
                 </div>
@@ -43,12 +62,12 @@ const CartoonCategories = ({dataCartoon}) => {
                     <div className='text-[#087E8B]'>{moment(item.published_year).format("YYYY")}</div>
                   </div>
                 </div>
-             
-             
               </div> 
             ))}
-           
           </div>
+          {data.length === 0 && (
+          <div className="text-center text-gray-500 mt-10">No cartoons found.</div>
+        )}
       </div>
     </div>    
   )
