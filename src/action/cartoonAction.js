@@ -1,3 +1,4 @@
+'use server'
 import { getAllCartoonService, getByIdCartoonService, searchCartoonService } from "@/service/cartoon.service"
 
 export const getAllCartoonAction = async  () =>{
@@ -11,12 +12,16 @@ export const getByIdCartoonAction = async (id) =>{
         return res ;
 }
 
-export const searchCartoonAction = async (search) =>{
+export const searchCartoonAction = async (search) => {
         const res = await searchCartoonService(search);
-        console.log(res);
-        const filterResuls = res?.payload?.filter(cartoon =>
-                cartoon.ct_title.toLowerCase().includes(search.toLowerCase())
+        console.log("response from searchCartoonService:", res);
+        
+        // Ensure the response has payload and filter results based on the search term
+        const filterResults = res?.payload?.filter(cartoon =>
+          cartoon.ct_title.toLowerCase().includes(search.toLowerCase())
         );
-        console.log(filterResuls)
-        return {payload : filterResuls};
-}
+      
+        console.log("filtered results:", filterResults);
+        return filterResults || []; // Ensure it always returns an array, even if empty
+};
+      

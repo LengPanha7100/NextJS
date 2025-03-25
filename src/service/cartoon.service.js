@@ -21,6 +21,7 @@ export const searchCartoonService = async (search) =>{
         }
     })
     const res = cartoon.json();
+    console.log("searchService:", res);
     return res;
 }
 

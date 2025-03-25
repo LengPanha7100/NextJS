@@ -6,7 +6,7 @@ const SearchComponent = ({onSearch}) => {
   const handleSearch = (e) =>{
     const value = e.target.value;
     setSearch(value);
-    onSearch(value);
+    onSearch(value.trim() === "" ? "" : value);
   }
   return (
     <div className="flex items-center border border-none gap-2 rounded-md p-2 w-full max-w-5xl mx-4">
