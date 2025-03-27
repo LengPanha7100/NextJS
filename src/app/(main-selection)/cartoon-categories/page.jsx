@@ -3,7 +3,8 @@ import CartoonCategories from '../../../components/CartoonCategories'
 import { getAllCartoonAction} from '@/action/cartoonAction'
 
 const page = async  () => {
-  const dataCartoon = await getAllCartoonAction();
+  const data = await getAllCartoonAction();
+  const dataCartoon = data.payload;
   return (
     <div>
        <CartoonCategories dataCartoon = {dataCartoon}/>

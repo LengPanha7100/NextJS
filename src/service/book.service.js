@@ -9,3 +9,32 @@ export const getBookByIdService = async (id) =>{
      console.log(resposne);
      return resposne;
 }
+
+export const searchReadBookService = async (search) =>{
+    const book = await fetch(`https://nextjs-homework005.vercel.app/api/book?search=${search}`,{
+        method: "GET",
+        headers : {
+            "Content-Type" : "application/json",
+        }
+    })
+    const res = await book.json();
+    console.log("res",res)
+    return res;
+}
+
+export const getAllFilterService = async () =>{
+    const book = await fetch('https://nextjs-homework005.vercel.app/api/cartoon_genre');
+    const res = await book.json()
+    return res;
+}
+
+export const getFilterByIdService = async (id) =>{
+    const book = await fetch(`https://nextjs-homework005.vercel.app/api/book?query=${id}`,{
+        method : "GET",
+        headers : {
+            "Content-Type" : "application/json",
+        }
+    })
+    const res = await book.json();
+    return res;
+}

@@ -14,14 +14,29 @@ export const getByIdCartoonService = async (id) =>{
 }
 
 export const searchCartoonService = async (search) =>{
+    console.log("12",search);
     const cartoon = await fetch(`https://nextjs-homework005.vercel.app/api/cartoon?search=${search}`,{
         method : "GET",
         headers : {
             "Content-Type" : "application/json",
         }
     })
-    const res = cartoon.json();
-    console.log("searchService:", res);
+    const res = await cartoon.json();
+    return res;
+}
+export const getAllFilterCartoonService = async () =>{
+    const book = await fetch('https://nextjs-homework005.vercel.app/api/cartoon_genre');
+    const res = await book.json()
     return res;
 }
 
+export const getFilterCartoonByIdService = async (id) =>{
+    const book = await fetch(`https://nextjs-homework005.vercel.app/api/cartoon?genre=${id}`,{
+        method : "GET",
+        headers : {
+            "Content-Type" : "application/json",
+        }
+    })
+    const res = await book.json();
+    return res;
+}
