@@ -33,7 +33,6 @@ const BookCategories = ({data}) => {
     const filterid = item.id;
     try{
       const dataBookId = await getFilterByIdAction(filterid)
-      console.log(dataBookId);
       setDataBook(dataBookId?.payload || [])
     }catch(error){
       console.error("Error fetch data : ",error);
